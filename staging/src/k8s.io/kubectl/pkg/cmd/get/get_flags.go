@@ -18,6 +18,7 @@ package get
 
 import (
 	"fmt"
+	"sort"
 	"strings"
 
 	"github.com/spf13/cobra"
@@ -73,6 +74,7 @@ func (f *PrintFlags) AllowedFormats() []string {
 	formats = append(formats, f.TemplateFlags.AllowedFormats()...)
 	formats = append(formats, f.CustomColumnsFlags.AllowedFormats()...)
 	formats = append(formats, f.HumanReadableFlags.AllowedFormats()...)
+	sort.Strings(formats)
 	return formats
 }
 

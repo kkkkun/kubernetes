@@ -84,6 +84,7 @@ func (f *PrintFlags) AllowedFormats() []string {
 	ret = append(ret, f.JSONYamlPrintFlags.AllowedFormats()...)
 	ret = append(ret, f.NamePrintFlags.AllowedFormats()...)
 	ret = append(ret, f.TemplatePrinterFlags.AllowedFormats()...)
+	sort.Strings(ret)
 	return ret
 }
 

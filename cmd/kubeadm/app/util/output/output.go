@@ -19,6 +19,7 @@ package output
 import (
 	"fmt"
 	"io"
+	"sort"
 	"strings"
 
 	"github.com/spf13/cobra"
@@ -57,7 +58,7 @@ func (pf *PrintFlags) AllowedFormats() []string {
 	ret := []string{TextOutput}
 	ret = append(ret, pf.JSONYamlPrintFlags.AllowedFormats()...)
 	ret = append(ret, pf.KubeTemplatePrintFlags.AllowedFormats()...)
-
+	sort.Strings(ret)
 	return ret
 }
 
